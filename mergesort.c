@@ -40,7 +40,12 @@ static void merge(double * const arr, int l, int m, int r)
 	int n2 = r - m; 
 
 	/* create temp arrays */
-	double L[n1], R[n2]; 
+	double * L=NULL;
+	double * R=NULL;
+  	if (!(L=(double*)malloc(n1*sizeof(*arr)))) {
+  	}
+  	if (!(R=(double*)malloc(n2*sizeof(*arr)))) {
+  	}
 
 	/* Copy data to temp arrays L[] and R[] */
 	for (i = 0; i < n1; i++) 
@@ -85,8 +90,8 @@ static void merge(double * const arr, int l, int m, int r)
 		k++; 
 	} 
 
-	// free(L);
-	// free(R);
+	free(L);
+	free(R);
 } 
 
 /* l is for left index and r is right index of the 
